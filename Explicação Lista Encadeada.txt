@@ -1,0 +1,25 @@
+Lista Encadeada - lista - lista ligada - linked list
+
+A lista encadeada possui alem do seu valor, um ponteiro apontando para o proximo elemento
+
+Esse elemento, tem o valor 1, se não tiver apontando para outra lista, apontará para NULL.
+
+
+----
+|1| | -> NULL       
+----
+
+Essa lista anterior - aponta para essa nova lista e essa nova lista aponta para NULL.
+
+----      ----
+|1| | ->  |4| | -> NULL
+----      ----
+
+Adicionando um novo elemento na lista, esse 7 vai apontar para o NULL
+Ela é encadeada por que dentro dos valores, além de seus valores tem um ponteiro 
+apontando para o proximo elemento da lista e se for o ultimo, apontará para NULL.
+
+----      ----      ----
+|1| | ->  |4| | ->  |7| |  -> NULL
+----      ----      ----
+
