@@ -34,3 +34,49 @@ void libera(no *list_enc){
         }
     }
 }
+
+//func. que exibe os valores dos nós das list encad
+//tbm vai receber um pont. do tipo nó que chama list_enc
+void exibe(no *list_enc) {
+    if (vazia(list_enc)){ //verifica se a lista está vazia
+        printf("Mano, a lista não tem nada!\n\n");
+        return; //finaliza o if
+    }
+//se a lista nao estiver vazia, vamos criar uma var. temporaria tipo nó de ponteiro
+    no *tmp;
+    tmp = list_enc -> prox; //temp vai receber nossa lista -> proximo elemento
+
+    while (tmp != NULL){ //enquanto tmp for diferente de NULL
+        printf("%d", tmp -> valor); // exibe o valor de tmp
+        tmp = tmp -> prox; //tmp recebe o prox valor
+    }
+    printf("\n\n");
+}
+
+//func que insere um valor no inicio da lista
+void insereInicio(no *list_enc) {
+    no *novo = (no*)malloc(sizeof(no));
+    /*vamos criar uma nova variavel que sera o novo nó, ele vai retornar um ponteiro
+    para o nó e vamos utilizar o malloc que vai alocar a memoria para esse novo nó.
+    o sizeof vai alocar o espaço necessario. Se a lista tiver varias variaveis, ele
+    vai alocar a memoria para caber tudo.*/
+
+    if(!novo) { //se nao tiver memoria disponivel
+        printf("Sem memória disponivel!\n");
+        exit(1); //faz o programa terminar a execução
+    }
+//caso tenha memória disponivel
+    printf("Informe o valor: ");
+    scanf("%d", &novo->valor); //le o valor do novo nó que o usuario digitou
+
+    //criamos a "novacabeça" a list_enc proximo vai apontar para o novo
+    no *oldHead = list_enc->prox;
+
+    //pegamos a cabeça anterior , vamos apontar para o prox
+    list_enc -> prox = novo;
+
+    //vamos pegar a nossa lista proximo e apostar para o novo
+    novo -> prox = oldHead;
+
+}
+
